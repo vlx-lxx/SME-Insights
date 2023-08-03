@@ -1,0 +1,524 @@
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dashboard</title>
+   <link rel="icon" href="ncb logo without text.png">
+   <link rel="stylesheet" href="dash.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <script type="text/javascript" id="chatbotscript" startbotid="48" botisactive="false" mobileavatar="60"
+      desktopavatar="100" flowname="web-loan-flow" reserved="x"
+      welcomemsg="Hello, I'm Simone. How may I help you today? </br> Click Here" clientid="https://jncb.fluidaibot.com"
+      src="https://jncb.fluidaibot.com/js/integration/ncb_fluidaibot_integrations.js?t=1691000176873" custom_bot="true"
+      product_button_text="Need a Loan? </br></br> Click Here"
+      service_button_text="Need Customer Care Assistance? </br></br> Click Here" product_button_onclick="loadchat"
+      service_button_onclick="openLiveChat"
+      custom_bot_script_file="https://livechat.jncb.com/ncb-live-chat.js"></script>
+   <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+</head>
+
+<body>
+   <div class="navbar">
+      <div class="navbar-items">
+         <button class="openbtn" onclick="openNav()">&#9776;</button>
+
+         <div id="mySidepanel" class="sidepanel">
+            <!-- Sidebar items with icons and text -->
+
+            <span class="closebtn" onclick="closeNav()">&times;</span>
+
+            <div class="sidebar-item">
+               <button class="sidebar-icon-button" onclick="redirectToPage('dashboard.html')"><i
+                     class="fas fa-clipboard-list"></i></button>
+               <span class="sidebar-item-text" onclick="redirectToPage('dashboard.html')">Dashboard</span>
+            </div>
+
+            <div class="sidebar-item">
+               <button class="sidebar-icon-button" onclick="redirectToPage('budget.html')"><i
+                     class="fas fa-chart-line"></i></button>
+               <span class="sidebar-item-text" onclick="redirectToPage('budget.html')">Budget & Expenses</span>
+            </div>
+
+            <div class="sidebar-item">
+               <button class="sidebar-icon-button" onclick="redirectToPage('invoice.html')"><i
+                     class="fas fa-credit-card"></i></button>
+               <span class="sidebar-item-text" onclick="redirectToPage('invoice.html')">Invoice</span>
+            </div>
+
+
+
+
+
+            <div class="sidebar-item">
+               <button class="sidebar-icon-button" onclick="redirectToPage('transaction.html')"><i
+                     class="fas fa-file-alt"></i></button>
+               <span class="sidebar-item-text" onclick="redirectToPage('transaction.html')">Transactions</span>
+            </div>
+
+            <div class="sidebar-item">
+               <button class="sidebar-icon-button" onclick="redirectToPage('loans&grants.html')"><i
+                     class="fas fa-money-bill"></i></button>
+               <span class="sidebar-item-text" onclick="redirectToPage('loans&grants.html')">Loans &amp;
+                  Grants</span>
+            </div>
+
+         </div>
+
+         <a class="navbar-brand" href="#">
+            <img class="ncblogowithtext" src="ncb logo with text.png" alt="">
+         </a>
+      </div>
+
+      <div class="icon-container">
+
+         <button class="icon-button" id="livechat-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+               viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+               <path
+                  d="M256 48C141.1 48 48 141.1 48 256v40c0 13.3-10.7 24-24 24s-24-10.7-24-24V256C0 114.6 114.6 0 256 0S512 114.6 512 256V400.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24H240c-26.5 0-48-21.5-48-48s21.5-48 48-48h32c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40V256c0-114.9-93.1-208-208-208zM144 208h16c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H144c-35.3 0-64-28.7-64-64V272c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64v48c0 35.3-28.7 64-64 64H352c-17.7 0-32-14.3-32-32V240c0-17.7 14.3-32 32-32h16z" />
+            </svg>
+
+         </button>
+
+         <button class="icon-button" id="bell-button">
+            <i class="fa fa-bell" aria-hidden="true"></i>
+         </button>
+
+         <button class="icon-button" id="profile-button">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+         </button>
+
+         <button class="icon-button" id="gear-button">
+            <i class="fas fa-cog"></i>
+         </button>
+      </div>
+   </div>
+   <div class="welcometxt">
+      <p>
+      <h1 style="padding-left: 2%;">Welcome to <font color="#2d5a93">Greg&rsquo;s Sneakers</font> Dashboard</h1>
+      </p>
+   </div>
+   <br>
+   <div class="welcome_container" id="rcontainer1">
+      <p class="todaytxt">
+      <h2>
+         <b>Today's Revenue</b></h7>
+         <p>
+         <div class="money-balance">
+            <p style="font-size: 30px;">$18,678.23
+               <button class="sort-button" id="sort-button">
+                  <i class="fa fa-sort"> 12 months</i>
+               </button>
+            </p>
+         </div>
+   </div>
+   <div class="welcome_container" id="rcontainer2">
+      <table>
+         <tr>
+            <td>
+               <h2 style="color: #2d5a93"> Welcome Back! </h2>
+            </td>
+         </tr>
+         <tr>
+            <td style="font-size: 20px; vertical-align:top"> Your <b>weekly report</b> is here. <br>
+               Here are some insights that can help <br>
+               grow your <b>Sneaker Store</b>.
+         </tr>
+      </table>
+   </div>
+   <div class="welcome_container" id="rcontainer2">
+      <img src="total revenue graph.png" alt="">
+   </div>
+   <div class="budget_container">
+      <div class="rounded-container2" id="rcontainer3">
+         <table width="100%">
+            <h2 style="padding-top: 2%; color: #888888; font-size: 18px;"> EXPENSES </h2>
+            <tr>
+               <td>
+               <td rowspan="3"><img src="donut chart of expenses.png" alt="donut-chart" width=350px></td>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <h1 style="color: #414b88">
+                     $16,096.52</h2>
+               </td>
+            </tr>
+            <tr>
+               <td>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div class="rounded-container2" id="rcontainer3">
+         <h2 style="padding-top: 2%; color: #888888; font-size: 18px;"> NET INCOME IN THE LAST 30 DAYS </h2>
+         <table width="100%">
+            <tr>
+               <td>
+               <td rowspan="3"><img src="net income graph.png" alt="donut-chart" width=400px></td>
+               </td>
+            </tr>
+            <tr>
+               <td>
+               </td>
+            </tr>
+            <tr>
+            </tr>
+         </table>
+      </div>
+   </div>
+   <div class="budget_container">
+      <div class="rounded-container2" id="rcontainer3">
+         <h2 style="padding-top: 2%; color: #888888; font-size: 18px;"> LOANS </h2>
+         <table width="100%">
+            <tr>
+               <td style="font-size: 20px;">
+                  You may be elligible for loan of up to $500K depending on your business ealth and analytics.
+                  Conditions apply!
+               </td>
+            </tr>
+            <tr>
+               <td>
+               </td>
+            </tr>
+            <tr>
+            </tr>
+         </table>
+      </div>
+      <div class="rounded-container2" id="rcontainer3">
+         <h2 style="padding-top: 2%; color: #888888; font-size: 18px;"> TOTAL SALES FOR THE LAST 30 DAYS </h2>
+         <table width="100%">
+            <tr>
+               <td>
+               <td rowspan="3"><img src="sales for last 30 days.png" alt="donut-chart" width=470px height=300px></td>
+               </td>
+            </tr>
+            <tr>
+               <td>
+               </td>
+            </tr>
+            <tr>
+            </tr>
+         </table>
+      </div>
+   </div>
+   <div class="edit-button-container">
+      <button class="edit-button"><span style="color: grey;">EDIT DASHBOARD +</span></button>
+   </div>
+
+   <div class="vlxchatbot">
+      <div id="chatBotDiv"><audio id="notification">
+            <source src="https://jncb.fluidaibot.com/notification/deduction.mp3" type="audio/mpeg">
+            Your browser does not support this audio format.
+         </audio>
+         <style>
+            .botMessageContainer {
+               display: block;
+               position: fixed;
+               bottom: calc(80px + 45px);
+               right: 30px;
+               background: #fff;
+               box-shadow: -0.5px -0.5px 0px #dddddd, 1.5px 1.5px 15px #ecebeb;
+               border-radius: 7px;
+               animation-name: FadeFromBottom;
+               animation-duration: 1s;
+               animation-iteration-count: 1;
+               animation-fill-mode: forwards;
+               animation-timing-function: linear;
+            }
+
+            .avatarBotIconContainer {
+               display: block;
+               position: fixed;
+               bottom: calc(80px + 85px);
+               right: calc(30px - 45px);
+               max-height: 250px;
+               max-width: 170px;
+               opacity: 1;
+            }
+
+            #avatar-img {
+               height: 100%;
+               width: 100%;
+            }
+
+            .hideMessageContainer {
+               display: none;
+            }
+
+            .BotIcon {
+               animation-name: spin;
+               animation-duration: 0.5s;
+               animation-iteration-count: 1;
+               animation-fill-mode: forwards;
+               animation-timing-function: ease;
+            }
+
+            @keyframes FadeFromBottom {
+               from {
+                  bottom: calc(80px + 45px);
+                  opacity: 0;
+               }
+
+               to {
+                  bottom: calc(80px + 85px);
+                  opacity: 1;
+               }
+            }
+
+            @keyframes spin {
+               form {
+                  bottom: 80px;
+                  opacity: 1;
+                  display: block;
+               }
+
+               to {
+                  bottom: -120px;
+                  opacity: 0;
+                  display: none;
+               }
+            }
+
+            @keyframes getBotIconBack {
+               from {
+                  position: fixed;
+                  bottom: -120px;
+                  opacity: 0;
+                  display: none;
+                  z-index: 120000 !important;
+               }
+
+               to {
+                  position: fixed;
+                  bottom: 80px;
+                  opacity: 1;
+                  display: block;
+                  z-index: 120000 !important;
+               }
+            }
+
+            /* this style will be available when the custom Bot is enabled (true).
+          and this styles the customBot Floating Message */
+
+            #custom_chat_bot_msg_open {
+               border-radius: 10px;
+               background-color: #0065BD;
+               border: 1px solid #fff;
+               position: fixed;
+               right: calc(30px + 67px + 15px);
+               z-index: 120000 !important;
+               height: calc(67px - 17px);
+               display: flex;
+               cursor: pointer;
+               animation: custom_chatbot_floating_message 0.8s linear 1 forwards;
+            }
+
+            #custom_chat_bot_msg_open:hover {
+               transition: all 0.2s linear;
+               box-shadow: #bfbfbf 0px 0px 14px 0px;
+            }
+
+            /* this style will be available when the custom Bot is enabled (true).
+          and this styles the customBot_buttons_container and all the buttons present inside it */
+
+            #custom_bot_buttons_container {
+               border-radius: 10px;
+               background-color: #0065BD;
+               position: fixed;
+               bottom: calc(80px + 67px + 15px);
+               right: 30px;
+               display: none;
+               box-shadow: #bfbfbf 0px 0px 14px 0px;
+               z-index: 120000 !important;
+               padding: 8px;
+               width: 270px;
+               overflow: hidden;
+               animation: custom_bot_buttons_container 0.5s linear 1 forwards;
+            }
+
+            #custom_bot_product_button,
+            #custom_bot_service_button,
+            #custom_bot_survey_button {
+               font-size: 16px;
+               font-weight: 600;
+               line-height: 1.5;
+               padding: 11px 18px;
+               border-radius: 10px;
+               border: none;
+               background-color: #00539B;
+               color: white;
+               filter: drop-shadow(0 0 1px #3a424d);
+               margin: 8px;
+               display: flex;
+               justify-content: flex-start;
+               align-items: center;
+               visibility: hidden;
+               width: 93%;
+               gap: 11px;
+               text-align: left;
+               transition: background-color 0.25s;
+            }
+
+            .custom_bot_buttons_container_header {
+               display: flex;
+               justify-content: flex-start;
+               align-items: center;
+               gap: 3px;
+               margin: 5px 0 2px 27px;
+               visibility: hidden;
+            }
+
+            #custom_bot_product_button:hover,
+            #custom_bot_service_button:hover,
+            #custom_bot_survey_button:hover {
+               background-color: #0065BD;
+            }
+
+            @keyframes custom_bot_buttons_container {
+               0% {
+                  max-height: 0px;
+                  opacity: 0;
+               }
+
+               100% {
+                  max-height: 425px;
+                  opacity: 1;
+               }
+            }
+
+            @keyframes custom_bot_buttons_container_close {
+               0% {
+                  max-height: 285px;
+                  opacity: 1;
+               }
+
+               100% {
+                  max-height: 0px;
+                  opacity: 0;
+                  display: none;
+               }
+            }
+
+            @keyframes custom_chatbot_floating_message {
+               0% {
+                  opacity: 0.2;
+                  bottom: calc(80px - 6px);
+               }
+
+               50% {
+                  opacity: 0.6;
+                  bottom: calc(80px);
+               }
+
+               100% {
+                  opacity: 1;
+                  bottom: calc(80px + 6px);
+               }
+            }
+         </style><img id="chat_bot_icon_open" onclick="displayCustomBotButtons()"
+            style="-webkit-box-sizing:border-box;box-sizing: border-box;cursor: pointer; display: block;z-index: 120000!important; padding: 3px; box-shadow:grey 0px 0px 10px; border-radius:7px;width:67px;height:67px;bottom:80px;right:30px;position:fixed;cursor:pointer;"
+            src="nadine.png" onerror="this.src=`/image/chatBot.png`">
+         <div id="custom_chat_bot_msg_open" style="display: none;">
+            <button type="button"
+               style="background-color: #0065BD; color: #fff; border: none; font-size: 16px; position: absolute; top: -10px; right: -6px; border-radius: 50%; font-weight: bolder;"
+               onclick="hideCustomBotFloatingMsg()">×</button>
+            <p style="padding: 1px 13px; margin: auto; font-size: 14px; color: #fff; font-weight: 600;"
+               onclick="displayCustomBotButtons()">
+               Hello I'm Nadeen. How may I help you today?
+            </p>
+         </div>
+         <div id="custom_bot_buttons_container" style="display: block;">
+
+            <div class="custom_bot_buttons_container_header" style="visibility: visible;">
+               <img id="chat_bot_icon_open" src="nadine.png" onerror="this.src='/image/chatBot.png'" height="30"
+                  width="30">
+               <span style="margin-left: 5px; color: white; font-weight: 700;">Hi I'm Nadeen. Welcome!</span>
+               <button type="button"
+                  style="border: none; background: transparent; color: #fff; position: absolute; right: 3px; top: 0; font-size: 21px;"
+                  onclick="close_custom_bot_container()">×</button>
+            </div>
+
+            <div
+               style="display: flex; justify-content: center; align-items: center; flex-direction: column; flex-wrap: wrap; margin: 0 3px;">
+
+               <button type="button" id="custom_bot_product_button" onclick="redirectToPage('chatbot.html')"
+                  style="visibility: visible;">
+                  Do you need help managing your expenses? <br><br> Click Here</button>
+
+               <button type="button" id="custom_bot_service_button" onclick="redirectToPage('chatbot.html')"
+                  style="visibility: visible;">
+                  According to your revenue sales tend to increase in August. It may be wise to restock inventory!
+                  <br><br> Click Here</button>
+            </div>
+         </div>
+      </div>
+      <script src="https://jncb.fluidaibot.com/js/pdfjs-dist/pdfViewHelper.js"></script>
+   </div>
+
+
+
+   <script src="script.js"></script>
+</body>
+
+
+
+
+
+<footer>
+   <table>
+      <tr>
+         <th>SUPPORT</th>
+         <th>ABOUT US</th>
+         <th>SECURITY</th>
+         <th>FEES AND RATES</th>
+         <th>AFFILIATE SITES</th>
+         <th>FOLLOW US</th>
+      </tr>
+      <tr>
+         <td><a href="#faq">Help Center</a></td>
+         <td><a href="#who-we-are">Our Story</a></td>
+         <td><a href="#security">Privacy Policy</a></td>
+         <td><a href="#fees-and-rates">Service Fees</a></td>
+         <td><a href="#affiliate-sites">Partner Websites</a></td>
+         <td>
+            <a href="https://www.twitter.com/YourCompany" target="_blank">Twitter</a>
+         </td>
+      </tr>
+      <tr>
+         <td><a href="#contact-us">Contact Us</a></td>
+         <td><a href="#history">Our History</a></td>
+         <td><a href="#security">Security Measures</a></td>
+         <td><a href="#fees-and-rates">Rates and Charges</a></td>
+         <td><a href="#affiliate-sites">Affiliate Partners</a></td>
+         <td>
+            <a href="https://www.instagram.com/YourCompany" target="_blank">Instagram</a>
+         </td>
+      </tr>
+      <tr>
+         <td><a href="#branches-atm">Branch Locator</a></td>
+         <td><a href="#awards">Achievements</a></td>
+         <td><a href="#security">Terms of Service</a></td>
+         <td><a href="#fees-and-rates">Transaction Costs</a></td>
+         <td><a href="#affiliate-sites">Connected Sites</a></td>
+         <td>
+            <a href="https://www.facebook.com/YourCompany" target="_blank">Facebook</a>
+         </td>
+      </tr>
+      <tr>
+         <td><a href="#freelance-portal">Freelancer Hub</a></td>
+         <td><a href="#about-us">Our Team</a></td>
+         <td><a href="#security">Data Protection</a></td>
+         <td><a href="#fees-and-rates">Pricing Details</a></td>
+         <td><a href="#affiliate-sites">Affiliated Brands</a></td>
+      </tr>
+      <tr>
+      </tr>
+   </table>
+   <br><br>
+   <p>© Copyright 1999-2023 NCB Jamaica. All Rights Reserved.</p>
+</footer>
+
+</html>
